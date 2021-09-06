@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 15:35:59 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/06 17:52:28 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/06 18:29:06 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int	ft_parse(const char *format, va_list args)
 	if (*(format + 1) == 'd' || (*(format + 1) == 'i'))
 		return (print_nb(va_arg(args, int)));
 	if (*(format + 1) == 'u')
-		return (print_char(va_arg(args, int)));
+		return (print_unsigned_nb(va_arg(args, unsigned int)));
 	if (*(format + 1) == 'x')
 		return (print_nb_base(va_arg(args, unsigned int), "0123456789abcdef"));
+	if (*(format + 1) == 'X')
+		return (print_nb_base(va_arg(args, unsigned int), "0123456789ABCDEF"));
 	if (*(format + 1) == '%')
 		return (print_char('%'));
 	else
@@ -68,8 +70,9 @@ int	main(void)
 {
 	char c = 'F';
 	char *str = "Test";
-	int nb = 12345;
-	ft_printf("coucou %c %s %d %% %x\n", c, str, nb, nb);
-	printf("coucou %c %s %d %% %x\n", c, str, nb, nb);
+	int nb = 1234;
+	int unsigned_nb = 123;
+	ft_printf("coucou %c %s %d %% %x %X %u\n", c, str, nb, nb, nb, unsigned_nb);
+	printf("coucou %c %s %d %% %x %X %u\n", c, str, nb, nb, nb, unsigned_nb);
 	printf("adresse : %p\n", str);
 }
