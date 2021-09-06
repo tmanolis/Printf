@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 20:09:28 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/01 19:03:45 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/06 17:50:38 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,23 @@ size_t		ft_count_decimals(int nb)
 	while (nb != 0)
 	{
 		nb = nb / 10;
+		count++;
+	}
+	return (count);
+}
+
+size_t		ft_count_hexa(unsigned int nb)
+{
+	size_t count;
+
+	count = 0;
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
+		return (8);
+	while (nb != 0)
+	{
+		nb = nb / 16;
 		count++;
 	}
 	return (count);

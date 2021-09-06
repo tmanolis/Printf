@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 15:35:59 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/01 19:11:11 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/06 17:52:28 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 int	ft_parse(const char *format, va_list args)
 {
 	if (*(format + 1) == 'c')
-		return (print_char((char)va_arg(args, int)));
+		return (print_char(va_arg(args, int)));
 	if (*(format + 1) == 's')
-		return (print_str((char *)va_arg(args, char *)));	
+		return (print_str(va_arg(args, char *)));	
 	// if (*(format + 1) == 'p')
 	// 	// print_char((void *)va_arg(args, void *));
 	if (*(format + 1) == 'd' || (*(format + 1) == 'i'))
-		return (print_nb((int)va_arg(args, int)));
+		return (print_nb(va_arg(args, int)));
 	if (*(format + 1) == 'u')
-		return (print_char((char)va_arg(args, int)));
+		return (print_char(va_arg(args, int)));
 	if (*(format + 1) == 'x')
-		return (print_char((char)va_arg(args, int)));
+		return (print_nb_base(va_arg(args, unsigned int), "0123456789abcdef"));
 	if (*(format + 1) == '%')
 		return (print_char('%'));
 	else
@@ -68,7 +68,8 @@ int	main(void)
 {
 	char c = 'F';
 	char *str = "Test";
-	int nb = 1234;
-	ft_printf("coucou %c %s %d %%\n", c, str, nb);
-	printf("coucou %c %s %d %%\n", c, str, nb);
+	int nb = 12345;
+	ft_printf("coucou %c %s %d %% %x\n", c, str, nb, nb);
+	printf("coucou %c %s %d %% %x\n", c, str, nb, nb);
+	printf("adresse : %p\n", str);
 }
