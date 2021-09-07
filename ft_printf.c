@@ -6,13 +6,11 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 15:35:59 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/07 15:43:09 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/07 16:59:07 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 int	ft_parse(const char *format, va_list args)
 {
