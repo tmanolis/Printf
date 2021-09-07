@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:40:28 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/06 18:26:25 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/07 14:53:13 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t	print_unsigned_nb(unsigned int nb)
 	return (ft_count_decimals_unsigned((unsigned int)nb));
 }
 
-size_t	print_nb_base(unsigned int nb, char *base)
+size_t	print_nb_base(unsigned long int nb, char *base)
 {
 	if (nb > 15)
 	{
@@ -53,4 +53,16 @@ size_t	print_nb_base(unsigned int nb, char *base)
 	}
 	ft_putchar(base[nb % 16]);
 	return (ft_count_hexa(nb));
+}
+
+size_t print_address(void *ptr)
+{
+	uintptr_t	nb;
+	size_t		count;	
+
+	nb = (uintptr_t)ptr;
+
+	write(1,"0x", 2);
+	count = 2 + print_nb_base(nb, "0123456789abcdef");
+	return (count);
 }

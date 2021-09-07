@@ -6,12 +6,13 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 15:35:59 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/06 18:29:06 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/07 14:55:54 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int	ft_parse(const char *format, va_list args)
 {
@@ -19,8 +20,8 @@ int	ft_parse(const char *format, va_list args)
 		return (print_char(va_arg(args, int)));
 	if (*(format + 1) == 's')
 		return (print_str(va_arg(args, char *)));	
-	// if (*(format + 1) == 'p')
-	// 	// print_char((void *)va_arg(args, void *));
+	if (*(format + 1) == 'p')
+		return (print_address(va_arg(args, void *)));
 	if (*(format + 1) == 'd' || (*(format + 1) == 'i'))
 		return (print_nb(va_arg(args, int)));
 	if (*(format + 1) == 'u')
@@ -53,11 +54,11 @@ int	ft_printf(const char *format, ...)
 		else
 		{
 			returned_char = ft_parse(format, args);
-			if (returned_char != 0)
-			{
+			// if (returned_char != 0)
+			// {
 				written_char = written_char + returned_char;
 				format++;
-			}
+			// }
 		}
 		format++;
 	}
@@ -72,7 +73,12 @@ int	main(void)
 	char *str = "Test";
 	int nb = 1234;
 	int unsigned_nb = 123;
+	char *addr;
+
+	addr = (char *)malloc(sizeof(char) * 10);
 	ft_printf("coucou %c %s %d %% %x %X %u\n", c, str, nb, nb, nb, unsigned_nb);
 	printf("coucou %c %s %d %% %x %X %u\n", c, str, nb, nb, nb, unsigned_nb);
-	printf("adresse : %p\n", str);
+	ft_printf("ma fonction : %p\n", addr);
+	printf("adresse : %p\n", addr);
+	free(addr);
 }
