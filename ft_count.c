@@ -6,15 +6,15 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:31:10 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/07 14:54:13 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/07 15:16:00 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t		ft_count_decimals(int nb)
+size_t	ft_count_decimals(int nb)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	if (nb == 0)
@@ -32,9 +32,9 @@ size_t		ft_count_decimals(int nb)
 	return (count);
 }
 
-size_t		ft_count_decimals_unsigned(unsigned int nb)
+size_t	ft_count_decimals_unsigned(unsigned int nb)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	if (nb == 0)
@@ -47,9 +47,9 @@ size_t		ft_count_decimals_unsigned(unsigned int nb)
 	return (count);
 }
 
-size_t		ft_count_hexa(unsigned long int nb)
+size_t	ft_count_hexa(unsigned long int nb)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	if (nb == 0)

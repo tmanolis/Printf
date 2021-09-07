@@ -6,21 +6,21 @@
 #    By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/22 17:49:56 by tmanolis          #+#    #+#              #
-#    Updated: 2021/09/07 14:08:35 by tmanolis         ###   ########.fr        #
+#    Updated: 2021/09/07 15:39:43 by tmanolis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = ft_printf.c			\
 	ft_printf_utils.c		\
 	ft_count.c				\
-	print_characters.c		\
+	print_char.c			\
 	print_numbers.c			\
 
 OBJS = ${SRCS:.c=.o}
 
 OBJS_BONUS = ${BONUS:.c=.o}
 
-NAME = libft.a
+NAME = libftprintf.a
 
 LINK = ar rc
 
