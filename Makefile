@@ -6,7 +6,7 @@
 #    By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/22 17:49:56 by tmanolis          #+#    #+#              #
-#    Updated: 2021/09/07 15:39:43 by tmanolis         ###   ########.fr        #
+#    Updated: 2021/09/07 16:46:25 by tmanolis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ SRCS = ft_printf.c			\
 	print_numbers.c			\
 
 OBJS = ${SRCS:.c=.o}
-
-OBJS_BONUS = ${BONUS:.c=.o}
 
 NAME = libftprintf.a
 
@@ -37,16 +35,12 @@ ${NAME}:	${OBJS}
 
 all:		${NAME}
 
-bonus:		${OBJS} ${OBJS_BONUS}
-			${LINK} ${NAME} ${OBJS} ${OBJS_BONUS}
-
 clean:
-			${RM} ${OBJS} ${OBJS_BONUS}
+			${RM} ${OBJS}
 
 fclean:		clean
 			${RM} ${NAME}
 
 re:			fclean all
 
-
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re
